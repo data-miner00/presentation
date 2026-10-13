@@ -1,0 +1,17 @@
+package main
+
+import "github.com/common-nighthawk/go-figure"
+
+func main() {
+	figure.NewFigure("Hello!", "", true).Print()
+}
+
+-- go.mod --
+module hello
+
+go 1.26
+
+require github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
+-- go.sum --
+github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be h1:J5BL2kskAlV9ckgEsNQXscjIaLiOYiZ75d4e94E6dcQ=
+github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be/go.mod h1:mk5IQ+Y0ZeO87b858TlA645sVcEcbiX6YqP98kt+7+w=

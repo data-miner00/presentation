@@ -11,3 +11,16 @@ The program below runs on this machine. Press Run.
 .play hello.go
 
 : Lines starting with a colon are presenter notes. Press N to see them.
+
+## Dependencies
+
+A snippet can import a third-party package. This one uses
+[go-figure](https://github.com/common-nighthawk/go-figure).
+
+.play banner.go /^package main/,/^}/
+
+Installing the package is not enough: `present` builds each snippet outside
+any module. The `go.mod` and `go.sum` it needs are hidden at the bottom of
+`banner.go`.
+
+: The first Run downloads go-figure, so it needs network once. Run it before the talk.
