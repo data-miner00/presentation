@@ -1,0 +1,77 @@
+# The Ackermann function
+Small definition, enormous values
+14 Oct 2026
+
+Shaun Chong
+
+## Definition
+
+For non-negative integers $m$ and $n$:
+
+.html katex.html
+.html definition.html
+
+The last case is the one that matters: the function feeds its own result back
+in as an argument.
+
+: This is the two-argument version by Rózsa Péter and Raphael Robinson. Ackermann's 1928 original took three arguments.
+
+## In Go
+
+The definition translates case for case.
+
+.code ackermann.go /^func ackermann/,/^}/
+
+## The first rows
+
+Each row is one $m$ from 0 to 3. The columns are $n$ from 0 to 4. Press Run.
+
+.play ackermann.go /^func main/,/^}/
+
+: Row 3 is already doubling. Everything up to here returns instantly.
+
+## Unfolding one call
+
+Even $A(1, 2)$ takes six steps to reach its answer.
+
+.html unfolding.html
+
+## Each row is a bigger operation
+
+- Counting: $A(0, n) = n + 1$
+- Adding: $A(1, n) = n + 2$
+- Multiplying: $A(2, n) = 2n + 3$
+- Powers: $A(3, n) = 2^{n+3} - 3$
+- Power towers: $A(4, n) = 2 \uparrow\uparrow (n + 3) - 3$, a stack of $n + 3$ twos
+
+Every row is built by repeating the row above it.
+
+: The double arrow is Knuth's up-arrow notation: a power tower.
+
+## Counting the calls
+
+The same function with a counter added. In row 3 the value roughly doubles at
+each step, but the number of calls roughly quadruples.
+
+.play calls.go /^func main/,/^}/
+
+## One row further
+
+$A(4, 2) = 2^{65536} - 3$. The recursive version only ever adds one, so it would
+need more than $2^{65536}$ calls. The closed form gets there directly.
+
+.play big.go /^func main/,/^}/
+
+: The result does not fit in a uint, which is why this uses math/big.
+
+## Why it matters
+
+- It always terminates and a program can compute it, yet it is not primitive
+  recursive: it outgrows every function built from loops whose bounds are fixed
+  in advance.
+- Its inverse, $\alpha(n)$, grows so slowly that it is at most 4 for any input
+  you could ever store.
+- That inverse is the cost of union-find: $m$ operations on $n$ elements take
+  $O(m \alpha(n))$ time.
+
+: Published by Wilhelm Ackermann in 1928. The union-find bound is Tarjan's, from 1975.
