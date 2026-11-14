@@ -1,0 +1,115 @@
+# n8n
+Workflow automation you can host yourself
+14 Nov 2026
+
+Shaun Chong
+
+## What is n8n?
+
+A workflow automation tool. You connect apps, APIs and AI models by drawing a
+flow of nodes on a canvas, and n8n runs that flow whenever its trigger fires.
+
+- Visual editor in the browser, with JavaScript or Python when the boxes are not enough
+- Hundreds of built-in integrations, plus an HTTP Request node for any other API
+- Self-host it for free, or pay for n8n Cloud
+- Fair-code: the source is public under the Sustainable Use License
+
+: Pronounced "n-eight-n", short for "nodemation". Started by Jan Oberhauser in Berlin in 2019.
+: Think Zapier or Make, but you can run it on your own machine and read the code.
+
+## The building blocks
+
+Every workflow is a chain of nodes. Each node takes a list of JSON items in and
+passes a list of JSON items out.
+
+- **Triggers** start a run: a schedule, a webhook, a form, a chat message, an event in another app
+- **Actions** do the work: Slack, Gmail, Google Sheets, Postgres, GitHub, HTTP Request
+- **Logic** steers the data: If, Switch, Merge, Loop, Wait
+- **Code** runs your own JavaScript or Python on the items
+- **AI** nodes call a language model, or run an agent that can use other nodes as tools
+
+: The JSON-items model is the main idea to get across: you can click any node after a run and see exactly what went in and what came out.
+
+## Example: triaging support tickets
+
+.html workflow.html
+
+A ticket arrives at a webhook. A language model tags its category and urgency.
+Urgent tickets page the on-call person in Slack; the rest get an acknowledgement
+email.
+
+: Without n8n this is a small service with a queue, an LLM client, a Slack client and an SMTP client. Here it is five nodes and some credentials.
+: The If node branches on the field the AI node added, for example urgency equals "high".
+
+## Triggering it from code
+
+Anything that can send an HTTP request can start the workflow. Press Run.
+
+.play webhook.go /^func main/,/^}/
+
+: Needs n8n running locally with the Webhook node listening for a test event, path support-ticket, method POST. Otherwise Run prints the connection error.
+: /webhook-test/ only works while the editor is listening. Once the workflow is active, callers use /webhook/ instead.
+
+## What else people build with it
+
+- **Reports**: every Monday, query a database and post a summary to Slack
+- **Sync**: copy new CRM contacts into a spreadsheet or a mailing list
+- **Alerts**: turn GitHub issues, failed deploys or uptime checks into chat messages
+- **AI assistants**: a chat agent that answers from your docs and can create tickets
+- **Glue**: move files between Drive, S3 and email without writing a service
+
+: There are thousands of community templates at n8n.io/workflows. Importing one is a good way to learn the editor.
+
+## Installing it: Docker
+
+The quickest route. Docker keeps your workflows in a named volume.
+
+    docker volume create n8n_data
+
+    docker run -it --rm --name n8n -p 5678:5678 \
+      -v n8n_data:/home/node/.n8n \
+      docker.n8n.io/n8nio/n8n
+
+Then open <http://localhost:5678>.
+
+: --rm deletes the container when it stops, but the n8n_data volume keeps workflows and credentials.
+: Optionally pass -e GENERIC_TIMEZONE and -e TZ so schedule triggers fire in your timezone.
+: For a server, the docs recommend Docker Compose behind a reverse proxy for HTTPS.
+
+## Installing it: Node.js
+
+No Docker? n8n is also an npm package. It needs Node.js 20.19 to 24.x.
+
+Try it once:
+
+    npx n8n
+
+Or install it:
+
+    npm install -g n8n
+    n8n start
+
+Either way, the editor is at <http://localhost:5678>.
+
+: On NixOS there is also a services.n8n module.
+
+## Your first workflow
+
+1. Open the editor and create the owner account
+2. Add a trigger, for example a Webhook node
+3. Add the nodes that should run after it, and connect your accounts when a node asks for credentials
+4. Run it once from the editor and click each node to check its output
+5. Activate the workflow so it runs on its own
+
+: Credentials are stored encrypted in n8n, not in the workflow. Workflows themselves export as JSON, so they can go in git.
+
+## When to reach for it
+
+- Glue between services that would otherwise be a small, boring backend
+- Teams where not everyone writes code, but someone can drop into a Code node
+- Data that has to stay on your own machines
+
+The licence lets you use it for your own work, including inside a company. It
+does not let you resell n8n itself as a hosted service.
+
+: Wrap up by showing the live editor if there is time.

@@ -1,0 +1,50 @@
+<!-- The example workflow: five nodes, one branch. Drawn inline so it needs no image file. -->
+<svg viewBox="0 0 900 290" width="100%" role="img"
+     aria-label="Webhook, then AI classify, then If urgent: yes goes to Slack, no goes to Gmail"
+     style="font-family: inherit; max-height: 290px;">
+  <defs>
+    <marker id="n8n-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <g fill="none" stroke="#666" stroke-width="2" marker-end="url(#n8n-arrow)">
+    <path d="M180,145 L238,145"/>
+    <path d="M400,145 L458,145"/>
+    <path d="M620,145 C665,145 665,55 708,55"/>
+    <path d="M620,145 C665,145 665,235 708,235"/>
+  </g>
+  <g font-size="15" fill="#555">
+    <text x="680" y="120">yes</text>
+    <text x="680" y="182">no</text>
+  </g>
+
+  <g font-size="18" text-anchor="middle">
+    <!-- Trigger: rounded on the left, as in the n8n editor. -->
+    <path d="M55,110 L180,110 L180,180 L55,180 A35,35 0 0 1 55,110 z"
+          fill="#fdebd3" stroke="#d9822b" stroke-width="2"/>
+    <text x="100" y="140" font-weight="bold">Webhook</text>
+    <text x="100" y="163" font-size="14" fill="#555">new ticket</text>
+
+    <rect x="240" y="110" width="160" height="70" rx="8"
+          fill="#ece6fb" stroke="#7b61c9" stroke-width="2"/>
+    <text x="320" y="140" font-weight="bold">AI: classify</text>
+    <text x="320" y="163" font-size="14" fill="#555">category, urgency</text>
+
+    <rect x="460" y="110" width="160" height="70" rx="8"
+          fill="#fff" stroke="#888" stroke-width="2"/>
+    <text x="540" y="140" font-weight="bold">If</text>
+    <text x="540" y="163" font-size="14" fill="#555">urgency is high?</text>
+
+    <rect x="710" y="20" width="160" height="70" rx="8"
+          fill="#fff" stroke="#888" stroke-width="2"/>
+    <text x="790" y="50" font-weight="bold">Slack</text>
+    <text x="790" y="73" font-size="14" fill="#555">page on-call</text>
+
+    <rect x="710" y="200" width="160" height="70" rx="8"
+          fill="#fff" stroke="#888" stroke-width="2"/>
+    <text x="790" y="230" font-weight="bold">Gmail</text>
+    <text x="790" y="253" font-size="14" fill="#555">auto-reply</text>
+  </g>
+</svg>
