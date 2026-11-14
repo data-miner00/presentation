@@ -1,7 +1,6 @@
-<!-- The example workflow: five nodes, one branch. Drawn inline so it needs no image file. -->
-<svg viewBox="0 0 900 290" width="100%" role="img"
-     aria-label="Webhook, then AI classify, then If urgent: yes goes to Slack, no goes to Gmail"
-     style="font-family: inherit; max-height: 290px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" width="900" height="290"
+     font-family="'Open Sans', sans-serif">
+  <title>The example workflow: Webhook, then AI classify, then If urgent. Yes goes to Slack, no goes to Gmail.</title>
   <defs>
     <marker id="n8n-arrow" viewBox="0 0 10 10" refX="9" refY="5"
             markerWidth="7" markerHeight="7" orient="auto-start-reverse">

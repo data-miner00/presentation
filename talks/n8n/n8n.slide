@@ -32,7 +32,7 @@ passes a list of JSON items out.
 
 ## Example: triaging support tickets
 
-.html workflow.html
+.image workflow.svg _ 980
 
 A ticket arrives at a webhook. A language model tags its category and urgency.
 Urgent tickets page the on-call person in Slack; the rest get an acknowledgement
