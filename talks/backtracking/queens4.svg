@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 416" width="900" height="416"
+     font-family="'Open Sans', sans-serif">
+  <title>Six frames of a four-queens search: two dead ends, two backtracks, then a solution.</title>
+  <defs>
+    <marker id="q4-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#666"/>
+    </marker>
+  </defs>
+  <text x="212.0" y="16" font-size="15" fill="#888" text-anchor="middle">1</text>
+  <rect x="148" y="24" width="32" height="32" fill="#fff"/>
+  <circle cx="164.0" cy="40.0" r="11" fill="#333"/><text x="164.0" y="45.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="180" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="212" y="24" width="32" height="32" fill="#fff"/>
+  <rect x="244" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="148" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <text x="164.0" y="77.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="180" y="56" width="32" height="32" fill="#fff"/>
+  <text x="196.0" y="77.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="212" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="244" y="56" width="32" height="32" fill="#fff"/>
+  <rect x="148" y="88" width="32" height="32" fill="#fff"/>
+  <text x="164.0" y="109.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="180" y="88" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="212" y="88" width="32" height="32" fill="#fff"/>
+  <text x="228.0" y="109.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="244" y="88" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="148" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <text x="164.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="180" y="120" width="32" height="32" fill="#fff"/>
+  <rect x="212" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="244" y="120" width="32" height="32" fill="#fff"/>
+  <text x="260.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="148" y="24" width="128" height="128" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="212.0" y="176" font-size="15" text-anchor="middle">Row 0: the first</text>
+  <text x="212.0" y="195" font-size="15" text-anchor="middle">column is safe</text>
+  <path d="M292,88.0 L370,88.0" stroke="#666" stroke-width="2" marker-end="url(#q4-arrow)"/>
+  <text x="450.0" y="16" font-size="15" fill="#888" text-anchor="middle">2</text>
+  <rect x="386" y="24" width="32" height="32" fill="#fff"/>
+  <circle cx="402.0" cy="40.0" r="11" fill="#333"/><text x="402.0" y="45.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="418" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="450" y="24" width="32" height="32" fill="#fff"/>
+  <rect x="482" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="386" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="418" y="56" width="32" height="32" fill="#fff"/>
+  <rect x="450" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <circle cx="466.0" cy="72.0" r="11" fill="#333"/><text x="466.0" y="77.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="482" y="56" width="32" height="32" fill="#fff"/>
+  <rect x="386" y="88" width="32" height="32" fill="#fbe0e0"/>
+  <text x="402.0" y="109.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="418" y="88" width="32" height="32" fill="#fbe0e0"/>
+  <text x="434.0" y="109.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="450" y="88" width="32" height="32" fill="#fbe0e0"/>
+  <text x="466.0" y="109.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="482" y="88" width="32" height="32" fill="#fbe0e0"/>
+  <text x="498.0" y="109.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="386" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <text x="402.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="418" y="120" width="32" height="32" fill="#fff"/>
+  <rect x="450" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <text x="466.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="482" y="120" width="32" height="32" fill="#fff"/>
+  <text x="498.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="386" y="24" width="128" height="128" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="450.0" y="176" font-size="15" text-anchor="middle">Row 2 has no safe</text>
+  <text x="450.0" y="195" font-size="15" text-anchor="middle">square: dead end</text>
+  <path d="M530,88.0 L608,88.0" stroke="#666" stroke-width="2" marker-end="url(#q4-arrow)"/>
+  <text x="688.0" y="16" font-size="15" fill="#888" text-anchor="middle">3</text>
+  <rect x="624" y="24" width="32" height="32" fill="#fff"/>
+  <circle cx="640.0" cy="40.0" r="11" fill="#333"/><text x="640.0" y="45.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="656" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="688" y="24" width="32" height="32" fill="#fff"/>
+  <rect x="720" y="24" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="624" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="656" y="56" width="32" height="32" fill="#fff"/>
+  <rect x="688" y="56" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="720" y="56" width="32" height="32" fill="#fff"/>
+  <circle cx="736.0" cy="72.0" r="11" fill="#333"/><text x="736.0" y="77.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="624" y="88" width="32" height="32" fill="#fff"/>
+  <text x="640.0" y="109.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="656" y="88" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="688" y="88" width="32" height="32" fill="#fff"/>
+  <text x="704.0" y="109.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="720" y="88" width="32" height="32" fill="#f2f2f2"/>
+  <text x="736.0" y="109.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="624" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <text x="640.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="656" y="120" width="32" height="32" fill="#fff"/>
+  <text x="672.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="688" y="120" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="720" y="120" width="32" height="32" fill="#fff"/>
+  <text x="736.0" y="141.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="624" y="24" width="128" height="128" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="688.0" y="176" font-size="15" text-anchor="middle">Back up one row:</text>
+  <text x="688.0" y="195" font-size="15" text-anchor="middle">row 1 tries column 3</text>
+  <text x="212.0" y="232" font-size="15" fill="#888" text-anchor="middle">4</text>
+  <rect x="148" y="240" width="32" height="32" fill="#fff"/>
+  <circle cx="164.0" cy="256.0" r="11" fill="#333"/><text x="164.0" y="261.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="180" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="212" y="240" width="32" height="32" fill="#fff"/>
+  <rect x="244" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="148" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="180" y="272" width="32" height="32" fill="#fff"/>
+  <rect x="212" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="244" y="272" width="32" height="32" fill="#fff"/>
+  <circle cx="260.0" cy="288.0" r="11" fill="#333"/><text x="260.0" y="293.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="148" y="304" width="32" height="32" fill="#fff"/>
+  <rect x="180" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <circle cx="196.0" cy="320.0" r="11" fill="#333"/><text x="196.0" y="325.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="212" y="304" width="32" height="32" fill="#fff"/>
+  <rect x="244" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="148" y="336" width="32" height="32" fill="#fbe0e0"/>
+  <text x="164.0" y="357.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="180" y="336" width="32" height="32" fill="#fbe0e0"/>
+  <text x="196.0" y="357.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="212" y="336" width="32" height="32" fill="#fbe0e0"/>
+  <text x="228.0" y="357.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="244" y="336" width="32" height="32" fill="#fbe0e0"/>
+  <text x="260.0" y="357.0" font-size="15" fill="#c0392b" text-anchor="middle">×</text>
+  <rect x="148" y="240" width="128" height="128" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="212.0" y="392" font-size="15" text-anchor="middle">Row 3 has no safe</text>
+  <text x="212.0" y="411" font-size="15" text-anchor="middle">square: dead end</text>
+  <path d="M292,304.0 L370,304.0" stroke="#666" stroke-width="2" marker-end="url(#q4-arrow)"/>
+  <text x="450.0" y="232" font-size="15" fill="#888" text-anchor="middle">5</text>
+  <rect x="386" y="240" width="32" height="32" fill="#fff"/>
+  <rect x="418" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <circle cx="434.0" cy="256.0" r="11" fill="#333"/><text x="434.0" y="261.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="450" y="240" width="32" height="32" fill="#fff"/>
+  <rect x="482" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="386" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <text x="402.0" y="293.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="418" y="272" width="32" height="32" fill="#fff"/>
+  <text x="434.0" y="293.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="450" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <text x="466.0" y="293.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="482" y="272" width="32" height="32" fill="#fff"/>
+  <rect x="386" y="304" width="32" height="32" fill="#fff"/>
+  <rect x="418" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <text x="434.0" y="325.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="450" y="304" width="32" height="32" fill="#fff"/>
+  <rect x="482" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <text x="498.0" y="325.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="386" y="336" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="418" y="336" width="32" height="32" fill="#fff"/>
+  <text x="434.0" y="357.0" font-size="15" fill="#aaa" text-anchor="middle">×</text>
+  <rect x="450" y="336" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="482" y="336" width="32" height="32" fill="#fff"/>
+  <rect x="386" y="240" width="128" height="128" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="450.0" y="392" font-size="15" text-anchor="middle">No options left:</text>
+  <text x="450.0" y="411" font-size="15" text-anchor="middle">back up two rows</text>
+  <path d="M530,304.0 L608,304.0" stroke="#666" stroke-width="2" marker-end="url(#q4-arrow)"/>
+  <text x="688.0" y="232" font-size="15" fill="#888" text-anchor="middle">6</text>
+  <rect x="624" y="240" width="32" height="32" fill="#fff"/>
+  <rect x="656" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <circle cx="672.0" cy="256.0" r="11" fill="#333"/><text x="672.0" y="261.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="688" y="240" width="32" height="32" fill="#fff"/>
+  <rect x="720" y="240" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="624" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="656" y="272" width="32" height="32" fill="#fff"/>
+  <rect x="688" y="272" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="720" y="272" width="32" height="32" fill="#fff"/>
+  <circle cx="736.0" cy="288.0" r="11" fill="#333"/><text x="736.0" y="293.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="624" y="304" width="32" height="32" fill="#fff"/>
+  <circle cx="640.0" cy="320.0" r="11" fill="#333"/><text x="640.0" y="325.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="656" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="688" y="304" width="32" height="32" fill="#fff"/>
+  <rect x="720" y="304" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="624" y="336" width="32" height="32" fill="#f2f2f2"/>
+  <rect x="656" y="336" width="32" height="32" fill="#fff"/>
+  <rect x="688" y="336" width="32" height="32" fill="#f2f2f2"/>
+  <circle cx="704.0" cy="352.0" r="11" fill="#333"/><text x="704.0" y="357.0" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Q</text>
+  <rect x="720" y="336" width="32" height="32" fill="#fff"/>
+  <rect x="624" y="240" width="128" height="128" fill="none" stroke="#2e8b57" stroke-width="3"/>
+  <text x="688.0" y="392" font-size="15" text-anchor="middle">All four placed:</text>
+  <text x="688.0" y="411" font-size="15" text-anchor="middle">a solution</text>
+</svg>

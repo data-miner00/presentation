@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300"
+     font-family="'Open Sans', sans-serif">
+  <title>Search tree for the permutations of abc. Start branches to a, b and c, each of those to two-letter prefixes, and each prefix to one full permutation. Numbers give the depth-first visiting order.</title>
+  <g stroke="#999" stroke-width="2">
+    <line x1="450" y1="47.0" x2="150.0" y2="93.0"/>
+    <line x1="150.0" y1="127.0" x2="75" y2="173.0"/>
+    <line x1="75" y1="207.0" x2="75" y2="253.0"/>
+    <line x1="150.0" y1="127.0" x2="225" y2="173.0"/>
+    <line x1="225" y1="207.0" x2="225" y2="253.0"/>
+    <line x1="450" y1="47.0" x2="450.0" y2="93.0"/>
+    <line x1="450.0" y1="127.0" x2="375" y2="173.0"/>
+    <line x1="375" y1="207.0" x2="375" y2="253.0"/>
+    <line x1="450.0" y1="127.0" x2="525" y2="173.0"/>
+    <line x1="525" y1="207.0" x2="525" y2="253.0"/>
+    <line x1="450" y1="47.0" x2="750.0" y2="93.0"/>
+    <line x1="750.0" y1="127.0" x2="675" y2="173.0"/>
+    <line x1="675" y1="207.0" x2="675" y2="253.0"/>
+    <line x1="750.0" y1="127.0" x2="825" y2="173.0"/>
+    <line x1="825" y1="207.0" x2="825" y2="253.0"/>
+  </g>
+  <g font-size="18" text-anchor="middle">
+    <rect x="414.0" y="13.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="450" y="36" fill="#555" font-style="italic">start</text>
+    <rect x="114.0" y="93.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="150.0" y="116">a</text>
+    <text x="192.0" y="115" font-size="14" fill="#888" text-anchor="start">1</text>
+    <rect x="39.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="75" y="196">ab</text>
+    <text x="117.0" y="195" font-size="14" fill="#888" text-anchor="start">2</text>
+    <rect x="39.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="75" y="276">abc</text>
+    <text x="117.0" y="275" font-size="14" fill="#888" text-anchor="start">3</text>
+    <rect x="189.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="225" y="196">ac</text>
+    <text x="267.0" y="195" font-size="14" fill="#888" text-anchor="start">4</text>
+    <rect x="189.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="225" y="276">acb</text>
+    <text x="267.0" y="275" font-size="14" fill="#888" text-anchor="start">5</text>
+    <rect x="414.0" y="93.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="450.0" y="116">b</text>
+    <text x="492.0" y="115" font-size="14" fill="#888" text-anchor="start">6</text>
+    <rect x="339.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="375" y="196">ba</text>
+    <text x="417.0" y="195" font-size="14" fill="#888" text-anchor="start">7</text>
+    <rect x="339.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="375" y="276">bac</text>
+    <text x="417.0" y="275" font-size="14" fill="#888" text-anchor="start">8</text>
+    <rect x="489.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="525" y="196">bc</text>
+    <text x="567.0" y="195" font-size="14" fill="#888" text-anchor="start">9</text>
+    <rect x="489.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="525" y="276">bca</text>
+    <text x="567.0" y="275" font-size="14" fill="#888" text-anchor="start">10</text>
+    <rect x="714.0" y="93.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="750.0" y="116">c</text>
+    <text x="792.0" y="115" font-size="14" fill="#888" text-anchor="start">11</text>
+    <rect x="639.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="675" y="196">ca</text>
+    <text x="717.0" y="195" font-size="14" fill="#888" text-anchor="start">12</text>
+    <rect x="639.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="675" y="276">cab</text>
+    <text x="717.0" y="275" font-size="14" fill="#888" text-anchor="start">13</text>
+    <rect x="789.0" y="173.0" width="72" height="34" rx="8" fill="#fff" stroke="#888" stroke-width="2"/><text x="825" y="196">cb</text>
+    <text x="867.0" y="195" font-size="14" fill="#888" text-anchor="start">14</text>
+    <rect x="789.0" y="253.0" width="72" height="34" rx="8" fill="#e3f1e8" stroke="#2e8b57" stroke-width="2"/><text x="825" y="276">cba</text>
+    <text x="867.0" y="275" font-size="14" fill="#888" text-anchor="start">15</text>
+  </g>
+</svg>

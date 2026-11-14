@@ -1,0 +1,179 @@
+# Backtracking
+Search by trying, and undoing
+14 Nov 2026
+
+Shaun Chong
+
+## Problems made of choices
+
+Some problems ask for a set of choices that together obey some rules.
+
+- Place eight queens so that none attacks another
+- Fill in a Sudoku grid
+- Find a path through a maze
+- Pick items that add up to an exact total
+- Timetable exams so no student has two at once
+
+The number of combinations explodes. Listing every one and checking it is
+hopeless beyond toy sizes.
+
+: These are constraint satisfaction problems. Many are NP-complete, so there is no known fast general method; backtracking is the standard exact approach.
+
+## The idea
+
+Build the answer one choice at a time, and check the rules after every choice.
+
+- If the partial answer can still work, make the next choice
+- If it already breaks a rule, undo the last choice and try the next option
+- If a choice has no options left, undo the choice before it
+
+That undo is the *back* in backtracking. A dead end found early rules out every
+answer that would have started the same way.
+
+: The term was coined by the mathematician D. H. Lehmer in the 1950s.
+: Compare generate-and-test: build every complete answer, then check it. Backtracking checks partial answers, so one failed check discards a whole family of complete answers at once.
+
+## The search tree
+
+Every partial answer is a node and every choice is an edge. Here are the
+permutations of `abc`:
+
+.image tree.svg _ 980
+
+Backtracking walks this tree depth first, in the order of the grey numbers. It
+only holds the current path in memory, never the whole tree.
+
+: The green leaves are complete answers. In a real problem, most branches are cut off long before they reach a leaf.
+
+## The pattern
+
+Every backtracking search has the same shape: choose, explore, unchoose.
+
+    func search(partial) {
+        if complete(partial) {
+            record(partial)
+            return
+        }
+        for _, c := range candidates(partial) {
+            if !ok(partial, c) {
+                continue // prune: no answer starts this way
+            }
+            choose(partial, c)
+            search(partial)
+            unchoose(partial, c)
+        }
+    }
+
+: Only three pieces change between problems: what the candidates are, how to check a partial answer, and how to undo a choice.
+: Recursion keeps the current path on the call stack, so unchoose runs on the way back out.
+
+## Example: permutations
+
+No rules to prune on yet. It prints each node as it visits it. Press Run.
+
+.play permutations.go /^func permute/,/^}/
+
+: The output matches the numbered tree two slides back.
+: path and used are shared by every call. That is why unchoose must restore them: the next sibling has to see the state from before this choice.
+
+## Example: eight queens
+
+Place eight queens on a chessboard so that no two share a row, column or
+diagonal. The chess composer Max Bezzel posed it in 1848.
+
+As a backtracking search:
+
+- Place one queen per row, top to bottom
+- In each row, try the columns from left to right
+- Skip any square that a queen above already attacks
+- If a row has no safe square, go back up and move the previous queen along
+
+: Gauss took an interest in the puzzle. Franz Nauck published solutions in 1850 and generalised it to n queens on an n × n board.
+
+## Four queens by hand
+
+The same search on a 4 × 4 board. Crosses mark squares already under attack.
+
+.image queens4.svg _ 980
+
+: Two dead ends and two backtracks, then a solution.
+: Between frames 1 and 2, row 1 also tried columns 0 and 1. Both were attacked, so the check rejected them without going any deeper.
+
+## Eight queens in Go
+
+`safe` checks the column and both diagonals against the queens above. Press Run.
+
+.play queens.go /^func place/,/^}/
+
+: It finds all 92 solutions and prints the first one.
+: There is no explicit undo: the next column simply overwrites cols[row], and no row below is read until it is filled in again.
+
+## Pruning pays
+
+Boards each approach looks at to find all 92 solutions:
+
+- Any 8 of the 64 squares, then check: 4,426,165,368
+- One queen per row, then check: 16,777,216
+- One per row and column, then check: 40,320
+- Backtracking, checking each queen as it is placed: 2,057
+
+The earlier a check rejects a partial answer, the bigger the subtree the search
+never has to visit.
+
+: The 2,057 counts partial boards too: 8 with one queen, 42 with two, 140 with three, then 344, 568, 550, 312, and the 92 complete ones.
+
+## Example: Sudoku
+
+Each empty cell is a choice of nine digits; the rows, columns and boxes are the rules.
+
+.code sudoku.go /^func solve/,/^}/
+
+: allowed checks the cell's row, column and 3 × 3 box for the digit.
+: Returning true at the first solution stops the whole search. To count solutions instead, keep going and return false.
+
+## Choosing what to try next
+
+Two ways to pick the next empty cell, on Arto Inkala's 2012 puzzle, reported at
+the time as the world's hardest Sudoku. Press Run.
+
+- **First empty**: the next blank cell in reading order
+- **Most constrained**: the blank cell with the fewest digits still allowed
+
+.play sudoku.go /^func main/,/^}/
+
+: Most constrained first finds dead ends sooner: a cell with no options fails at once, and a cell with one option is a forced move that costs no branching.
+: Each call is more expensive because it scans the whole grid, but there are about five times fewer calls.
+
+## Where you meet backtracking
+
+- **Puzzles**: Sudoku, crosswords, pentominoes, chess problems
+- **Constraint solvers**: timetables, staff rosters, product configuration
+- **SAT solvers**: DPLL (1962) is backtracking with extra deduction at each step
+- **Prolog**: running a program is a backtracking search through its rules
+- **Regex engines**: Perl, Python, Java, JavaScript and PCRE all backtrack
+- **Parsers** that try one grammar rule and fall back to the next
+
+: Modern SAT solvers (CDCL) add clause learning and can jump back several levels at once instead of one.
+: Knuth's Dancing Links is backtracking with a data structure that makes each undo cheap. It is a standard way to solve exact-cover puzzles such as Sudoku and pentominoes.
+
+## When it bites
+
+Pruning helps, but the worst case is still exponential. Take the regex
+`^(a+)+b` on a run of a's with no b: each extra a doubles the ways to split the
+a's into groups, and a backtracking engine tries every way before giving up.
+Press Run.
+
+.play regex.go /^func group/,/^}/
+
+: In July 2019 a regex containing .*(?:.*=.*) backtracked so heavily that CPUs across Cloudflare's network sat near 100% for 27 minutes.
+: Go's regexp package does not backtrack. It guarantees time linear in the input and gives up backreferences to do so; the last line of the output shows it.
+
+## Takeaways
+
+- Backtracking is a depth-first search over partial answers that undoes each
+  choice on the way back out
+- You supply three things: the candidates, a check, and an undo
+- How early the check rejects, and which choice you try first, decide the speed
+- The worst case is still exponential, so know which inputs could make it explode
+
+: If the same subproblem keeps coming back, cache its answer: that is dynamic programming. Backtracking fits when the rules make most branches fail early.
